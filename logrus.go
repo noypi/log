@@ -12,6 +12,10 @@ func init() {
 	SetDefaultFormatter()
 }
 
+func EnableDebugging() {
+	logrus.SetLevel(logrus.DebugLevel)
+}
+
 func SetDefaultFormatter() {
 	if nil == g_defaultFormatter {
 		g_defaultFormatter = new(DefaultFormatter)
