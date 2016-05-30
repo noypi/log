@@ -3,6 +3,7 @@ package logger
 import (
 	"fmt"
 	"github.com/Sirupsen/logrus"
+	"github.com/mattn/go-colorable"
 	"time"
 )
 
@@ -10,6 +11,11 @@ var g_defaultFormatter logrus.Formatter
 
 func init() {
 	SetDefaultFormatter()
+}
+
+func SetColoredFormatter() {
+	logrus.SetFormatter(&logrus.TextFormatter{ForceColors: true})
+	logrus.SetOutput(colorable.NewColorableStdout())
 }
 
 func EnableDebugging() {
