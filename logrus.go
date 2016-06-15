@@ -37,6 +37,6 @@ type DefaultFormatter struct{}
 
 func (f *DefaultFormatter) Format(entry *Entry) ([]byte, error) {
 	comp, _ := entry.Data["component"].(string)
-	return []byte(fmt.Sprintf("[%s|%s]%s> %v\n", entry.Level, comp, entry.Time.Format(time.RFC3339Nano), entry.Message)), nil
+	return []byte(fmt.Sprintf("[%s|%s]%s> %v\n", entry.Level, comp, entry.Time.Format(time.StampNano), entry.Message)), nil
 
 }
